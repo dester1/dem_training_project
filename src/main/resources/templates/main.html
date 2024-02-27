@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+    <div>
+        <h2>Главная</h2>
+        <ul class="menu-list">
+            <li class="menu_item">
+                <a href="">Добавить заявление</a>
+            </li>
+            <li class="menu_item">
+                <a href="">Мои заявления</a>
+            </li>
+            <li class="menu_item" sec:authorize="hasRole('ROLE_ADMIN')">
+                <a href="">Админская панель</a>
+            </li>
+            <li class="menu_item">
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit">Выйти</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
